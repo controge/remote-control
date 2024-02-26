@@ -10,6 +10,12 @@ import java.util.List;
 
 public class RemoteLoader implements  IRemoteLoader{
     HashMap<Integer, RemoteControl> remoteControls = new HashMap<>();
+    private static RemoteLoader remoteLoader = new RemoteLoader();
+    private RemoteLoader(){}
+
+    public static RemoteLoader getInstance(){
+        return remoteLoader;
+    }
     @Override
     public void setup(int id, List<DeviceData> devices) {
         RemoteControl remoteControl = new RemoteControl(devices.size());
